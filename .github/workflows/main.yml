@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Zip the extension
-        run: zip extension.zip * -x .git* *.png *.jpg img README.md
+        run: zip extension.zip * -x .git* *.png *.jpg README.md
       - name: Upload extension
         uses: actions/upload-artifact@v4
         with:
