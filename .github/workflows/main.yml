@@ -9,9 +9,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Zip the extension
-        run: zip extension.zip * -x .git* *.png *.jpg README.md
+        run: |
+          7z a -mx=9 -mtc=off extension.zip img js manifest.json
+          mv extension.zip extension.xpi
       - name: Upload extension
         uses: actions/upload-artifact@v4
         with:
           name: extension
-          path: extension.zip
+          path: extension.xpi
